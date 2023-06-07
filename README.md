@@ -45,15 +45,14 @@ All you have to do here is specify the wordlist, hashfile, and rulename you want
 
 <br>
 
-### The next basic cracking mode is the mask mode.
-This is essentially a more efficient brute force mode. Instead of just going through every single combination known to man we can specify a format using special characters. Fun Fact, john the ripper supports full syntax for the hashcat masks, so if you are unfamiliar go read my [hashcat](https://github.com/kourtnee/Summer_Work/tree/main/Hashcat) tutorial.
+### Other useful basic options to tack onto your john command
 
-You can also specify your own range of characters in a regex syntax.
 ```
-john --mask=<mask characters> hashfile
+john --format=<Hash name>
 ```
-Regex
+Spcifies the hash type, if not added It should auto detect but if it cant, specify. 
+
 ```
-john --mask=?1?1?1 -1=[A-Z] hashfile
+john --show
 ```
-the only difference here is that we specify ?1 to run through A-Z. Otherwise if you use hashcat masks it should automatically parse those as what they are. 
+shows the cracked hashes.
