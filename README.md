@@ -56,3 +56,5 @@ Now with the password we have we can run this command to open it
 7z x test.zip
 ```
 then when prompted for the password, use the password we got from cracking the hash. 
+
+I left a lil image in there for you <3
