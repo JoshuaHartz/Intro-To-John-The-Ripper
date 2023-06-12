@@ -13,46 +13,46 @@ I will be going over how to install this on linux, for those of you using kali l
 
 first run: 
 ```
-sudo apt-get install john
-```
-or if for some reason that doesnt work. You can use snap but I reccomend using the above
-```
-sudo snap install john-the-ripper
-```
-
-To verify if its installed, just run
-```
-john
-```
-
-
-## Basic Functionalities
-
-### The most basic usage of john is a dictionary attack, this attack can be used in a single mode or multiple hash mode. 
+git clone "https://github.com/magnumripper/JohnTheRipper.git" && cd JohnTheRipper/src && ./configure && sudo make -s clean && sudo make -sj4 
 
 ```
-john --wordlist=<wordlist.txt> hashfile
-```
-All you have to specity the wordlist and hashfile. (NOTE: you may have to specify the path to your wordlist and hashfile)
+THis is a jumbo installation of john, this command will automatically configure and setup the makefile for you. Personally I put mine in my main user dir.
 
-<br>
+To verify if its installed, run
+```
+cd JohnTheRipper/run
+./john --help
+```
 
-### The next basic but useful cracking mode to know is the rules mode.
-```
-john --wordlist=<wordlist.txt> --rules:<rulename> hashfile
-```
-All you have to do here is specify the wordlist, hashfile, and rulename you want to use.  (NOTE: you may have to specify the path to your wordlist and hashfile)
+For our case, we are going to ignore basic password cracking, as hashcat is superior. However john being a suite of applications we can use it for other things like extracting hashes from zip files or pdf's.
 
-<br>
 
-### Other useful basic options to tack onto your john command
+## Extracting hashes using john
 
+### zip2john
 ```
-john --format=<Hash name>
+cd JohnTheRipper/run
+./zip2john <path 2 zip> > <path 2 output file>
 ```
-Spcifies the hash type, if not added It should auto detect but if it cant, specify. 
+example
+```
+./zip2john ~/Downloads/testzip.zip > ~/Downloads/hash.txt
+```
+This will give you the hash that the password protected zip has. Now its up to you to crack it. Which can be done using john.
+```
+./john --wordlist=/home/soog/Downloads/rockyou.txt hash.txt
+```
 
+![image](https://github.com/JoshuaHartz/Intro-To-John-The-Ripper/assets/102620766/79d20337-01d8-4a50-823e-9daff6fa1314)
+
+you can see the password here is the orange 12345.
+
+You can then use unzip but I like to use 7z instead which you can get with
 ```
-john --show
+sudo apt-get p7zip-full
 ```
-shows the cracked hashes.
+Now with the password we have we can run this command to open it
+```
+7z x test.zip
+```
+then when prompted for the password, use the password we got from cracking the hash. 
