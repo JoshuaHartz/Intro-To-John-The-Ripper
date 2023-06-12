@@ -43,7 +43,7 @@ This will give you the hash that the password protected zip has. Now its up to y
 ./john --wordlist=/home/soog/Downloads/rockyou.txt hash.txt
 ```
 
-
+![image](https://github.com/JoshuaHartz/Intro-To-John-The-Ripper/assets/102620766/79d20337-01d8-4a50-823e-9daff6fa1314)
 
 you can see the password here is the orange 12345.
 
