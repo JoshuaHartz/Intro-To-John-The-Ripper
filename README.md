@@ -58,3 +58,7 @@ Now with the password we have we can run this command to open it
 then when prompted for the password, use the password we got from cracking the hash. 
 
 I left a lil image in there for you <3
+
+### Other uses
+
+If you navigate back to the JohnTheRipper/run directory and "ls" you can see all of the different tools that john offers for hash extration. There is rar2john, pgpdisk2john, itunes_backup2john, and many more. Find the one that fits your context the best and see what you need to run the command. Most of these will need the hash and a wordlist as the bare minimum. 
