@@ -16,7 +16,7 @@ first run:
 git clone "https://github.com/magnumripper/JohnTheRipper.git" && cd JohnTheRipper/src && ./configure && sudo make -s clean && sudo make -sj4 
 
 ```
-THis is a jumbo installation of john, this command will automatically configure and setup the makefile for you. Personally I put mine in my main user dir.
+This is a jumbo installation of john, this command will automatically configure and setup the makefile for you. Personally I put mine in my main user dir.
 
 To verify if its installed, run
 ```
@@ -28,7 +28,7 @@ For our case, we are going to ignore basic password cracking, as hashcat is supe
 
 
 ## Extracting hashes using john
-
+(you can use the zip in this repo and follow along)
 ### zip2john
 ```
 cd JohnTheRipper/run
